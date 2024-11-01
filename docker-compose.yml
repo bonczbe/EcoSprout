@@ -1,0 +1,43 @@
+version: '3.8' # or remove this line as it's obsolete
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081" # Metro bundler port
+    volumes:
+      - ./:/app # Mount the project directory
+      - /app/node_modules # Ignore local node_modules
+    environment:
+      NODE_ENV: development
+    command: yarn start # Run Metro bundler for development
+
+  android:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8081" # Changed to avoid conflict
+    volumes:
+      - ./:/app # Mount the project directory
+      - /app/node_modules # Ignore local node_modules
+    environment:
+      NODE_ENV: development
+    command: yarn android # Start Android build
+
+  ios:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "19000:19000" # Expo development server
+      - "19001:19001" # Expo iOS simulator
+      - "19002:19002" # Expo web interface
+    volumes:
+      - ./:/app # Mount the project directory
+      - /app/node_modules # Ignore local node_modules
+    environment:
+      NODE_ENV: development
+    command: yarn start --ios # Start iOS build using Expo
