@@ -1,0 +1,11 @@
+{
+  "translation": {
+    "LOGINSCREEN": {
+      "WELCOME": "Welcome to EcoSprout!",
+      "USERNAME": "Username",
+      "PASSWORD": "Password",
+      "LOGIN": "Login",
+      "CREATED_BY": "Created by"
+    }
+  }
+}

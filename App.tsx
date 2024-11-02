@@ -8,13 +8,20 @@ import Outside from "./screens/Outside";
 import Device from "./screens/Device";
 import Plant from "./screens/Plant";
 import Stats from "./screens/Stats";
+import Login from "./screens/Login";
+import "./lng/i18n";
 
 export default function App() {
   const Stack = createNativeStackNavigator<RootStackParamList>();
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{ header: () => <Nav name="Login" /> }}
+        />
         <Stack.Screen
           name="Home"
           component={Home}
@@ -28,22 +35,22 @@ export default function App() {
         <Stack.Screen
           name="Outside"
           component={Outside}
-          options={{ header: () => <Nav name="Rooms" /> }}
+          options={{ header: () => <Nav name="Outside" /> }}
         />
         <Stack.Screen
           name="Device"
           component={Device}
-          options={{ header: () => <Nav name="Rooms" /> }}
+          options={{ header: () => <Nav name="Device" /> }}
         />
         <Stack.Screen
           name="Plant"
           component={Plant}
-          options={{ header: () => <Nav name="Rooms" /> }}
+          options={{ header: () => <Nav name="Plant" /> }}
         />
         <Stack.Screen
           name="Stats"
           component={Stats}
-          options={{ header: () => <Nav name="Rooms" /> }}
+          options={{ header: () => <Nav name="Stats" /> }}
         />
       </Stack.Navigator>
     </NavigationContainer>

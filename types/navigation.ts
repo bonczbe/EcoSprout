@@ -7,6 +7,7 @@ export type RootStackParamList = {
   Device: undefined;
   Plant: undefined;
   Stats: undefined;
+  Login: undefined;
 };
 
 export type HomeScreenNavigationProp = NativeStackNavigationProp<

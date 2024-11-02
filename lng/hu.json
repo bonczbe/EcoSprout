@@ -1,0 +1,11 @@
+{
+  "translation": {
+    "LOGINSCREEN": {
+      "WELCOME": "Üdvözöl az EcoSprout!",
+      "USERNAME": "Fel.Név",
+      "PASSWORD": "Jelszó",
+      "LOGIN": "Belépés",
+      "CREATED_BY": "Készítette"
+    }
+  }
+}
