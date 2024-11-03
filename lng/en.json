@@ -54,7 +54,15 @@
         "NEWPASSWORDPLACEHOLDER": "Enter your new password",
         "NEWPASSWORDSECOND": "New Password Check",
         "NEWPASSWORDPLACEHOLDERSECOND": "Enter your new password again",
-        "SAVE": "Update Password"
+        "SAVE": "Update Password",
+        "ERRORS": {
+          "REQUIREMENTS_HEADER": "Please address the following password requirements:",
+          "MIN_LENGTH": "- Password must be at least 8 characters long",
+          "UPPERCASE": "- Password must contain at least one uppercase letter",
+          "LOWERCASE": "- Password must contain at least one lowercase letter",
+          "NUMBER": "- Password must contain at least one number",
+          "MISMATCH": "Passwords are mismatching!"
+        }
       }
     }
   }

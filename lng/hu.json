@@ -54,7 +54,15 @@
         "NEWPASSWORDPLACEHOLDER": "Írja be az új jelszavát",
         "NEWPASSWORDSECOND": "Új jelszó ellenőrző",
         "NEWPASSWORDPLACEHOLDERSECOND": "Írja be az új jelszavát újra",
-        "SAVE": "Jelszó frissítése"
+        "SAVE": "Jelszó frissítése",
+        "ERRORS": {
+          "REQUIREMENTS_HEADER": "Kérjük, vegye figyelembe a következő jelszókövetelményeket:",
+          "MIN_LENGTH": "- A jelszónak legalább 8 karakter hosszúnak kell lennie",
+          "UPPERCASE": "- A jelszónak tartalmaznia kell legalább egy nagybetűt",
+          "LOWERCASE": "- A jelszónak tartalmaznia kell legalább egy kisbetűt",
+          "NUMBER": "- A jelszónak tartalmaznia kell legalább egy számot",
+          "MISMATCH": "A jelszavak nem egyeznek!"
+        }
       }
     }
   }
