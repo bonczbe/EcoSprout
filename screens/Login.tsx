@@ -31,20 +31,24 @@ function Login({ navigation }: Props) {
       <Text style={tw`mb-4 text-xl`}>{t("LOGINSCREEN.WELCOME")}</Text>
       <View style={tw`items-center pt-12`}>
         <View style={tw`flex-row items-center mb-6`}>
-          <Text style={tw`mr-2`}>{t("LOGINSCREEN.USERNAME")}:</Text>
+          <Text style={tw`w-32 mr-2 text-right`}>
+            {t("LOGINSCREEN.USERNAME")}:
+          </Text>
           <TextInput
             style={tw`h-10 px-2 border border-gray-300 rounded-full w-60`}
             onChangeText={(newText) => setUserName(newText)}
-            placeholder="Enter your username"
+            placeholder={t("LOGINSCREEN.USERNAMEPLACEHOLDER")}
             value={userName}
           />
         </View>
         <View style={tw`flex-row items-center`}>
-          <Text style={tw`mr-2`}>{t("LOGINSCREEN.PASSWORD")}:</Text>
+          <Text style={tw`w-32 mr-2 text-right`}>
+            {t("LOGINSCREEN.PASSWORD")}:
+          </Text>
           <TextInput
             style={tw`h-10 px-2 border border-gray-300 rounded-full w-60`}
             onChangeText={(newText) => setPassword(newText)}
-            placeholder="Enter your password"
+            placeholder={t("LOGINSCREEN.PASSWORDPLACEHOLDER")}
             secureTextEntry
             value={password}
           />

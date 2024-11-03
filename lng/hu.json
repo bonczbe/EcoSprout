@@ -1,11 +1,61 @@
 {
   "translation": {
     "LOGINSCREEN": {
+      "TITLE": "EcoSprout",
       "WELCOME": "Üdvözöl az EcoSprout!",
-      "USERNAME": "Fel.Név",
+      "USERNAME": "Felhasználónév",
+      "USERNAMEPLACEHOLDER": "Írja be felhasználónevét",
       "PASSWORD": "Jelszó",
+      "PASSWORDPLACEHOLDER": "Írja be jelszavát",
       "LOGIN": "Belépés",
       "CREATED_BY": "Készítette"
+    },
+    "HOMESCREEN": {
+      "TITLE": "Kezdőlap"
+    },
+    "ROOMSSCREEN": {
+      "TITLE": "Szobák"
+    },
+    "OUTDOOR": {
+      "TITLE": "Kültéri"
+    },
+    "DEVICESCREEN": {
+      "TITLE": "Eszköz"
+    },
+    "PLANTSCREEN": {
+      "TITLE": "Növény"
+    },
+    "STATSSCREEN": {
+      "TITLE": "Statisztikák"
+    },
+    "SETTINGSSCREEN": {
+      "TITLE": "Beállítások",
+      "BACK": "Vissza",
+      "DATACHANGE": {
+        "FOLDABLE": "Adatok változtatás",
+        "TITLE": "Beállítások",
+        "USERNAME": "Felhasználónév",
+        "USERNAMEPLACEHOLDER": "Írja be a felhasználónevét",
+        "PASSWORD": "Jelszó",
+        "PASSWORDPLACEHOLDER": "Írja be a jelszavát",
+        "FIRSTNAME": "Keresztnév",
+        "FIRSTNAMEPLACEHOLDER": "Írja be a keresztnevét",
+        "LASTNAME": "Vezetéknév",
+        "LASTNAMEPLACEHOLDER": "Írja be a vezetéknevét",
+        "EMAIL": "Email",
+        "EMAILPLACEHOLDER": "Írja be az email címét",
+        "SAVE": "Adatok frissítése"
+      },
+      "PASSWORDCHANGE": {
+        "FOLDABLE": "Jelszó változtatás",
+        "PASSWORD": "Jelszó",
+        "PASSWORDPLACEHOLDER": "Írja be a jelszavát",
+        "NEWPASSWORD": "Új jelszó",
+        "NEWPASSWORDPLACEHOLDER": "Írja be az új jelszavát",
+        "NEWPASSWORDSECOND": "Új jelszó ellenőrző",
+        "NEWPASSWORDPLACEHOLDERSECOND": "Írja be az új jelszavát újra",
+        "SAVE": "Jelszó frissítése"
+      }
     }
   }
 }

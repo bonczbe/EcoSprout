@@ -4,14 +4,17 @@ import Home from "./screens/Home";
 import Rooms from "./screens/Rooms";
 import { RootStackParamList } from "./types/navigation";
 import Nav from "./components/Nav";
-import Outside from "./screens/Outside";
 import Device from "./screens/Device";
 import Plant from "./screens/Plant";
 import Stats from "./screens/Stats";
 import Login from "./screens/Login";
 import "./lng/i18n";
+import { useTranslation } from "react-i18next";
+import Outdoor from "./screens/Outdoor";
+import Settings from "./screens/Settings";
 
 export default function App() {
+  const { t } = useTranslation();
   const Stack = createNativeStackNavigator<RootStackParamList>();
 
   return (
@@ -20,37 +23,74 @@ export default function App() {
         <Stack.Screen
           name="Login"
           component={Login}
-          options={{ header: () => <Nav name="Login" /> }}
+          options={({ navigation }) => ({
+            header: () => (
+              <Nav name={t("LOGINSCREEN.TITLE")} navigation={navigation} />
+            ),
+          })}
         />
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{ header: () => <Nav name="Home" /> }}
+          options={({ navigation }) => ({
+            header: () => (
+              <Nav name={t("HOMESCREEN.TITLE")} navigation={navigation} />
+            ),
+          })}
         />
         <Stack.Screen
           name="Rooms"
           component={Rooms}
-          options={{ header: () => <Nav name="Rooms" /> }}
+          options={({ navigation }) => ({
+            header: () => (
+              <Nav name={t("ROOMSSCREEN.TITLE")} navigation={navigation} />
+            ),
+          })}
         />
         <Stack.Screen
-          name="Outside"
-          component={Outside}
-          options={{ header: () => <Nav name="Outside" /> }}
+          name="Outdoor"
+          component={Outdoor}
+          options={({ navigation }) => ({
+            header: () => (
+              <Nav name={t("OUTDOOR.TITLE")} navigation={navigation} />
+            ),
+          })}
         />
         <Stack.Screen
           name="Device"
           component={Device}
-          options={{ header: () => <Nav name="Device" /> }}
+          options={({ navigation }) => ({
+            header: () => (
+              <Nav name={t("DEVICESCREEN.TITLE")} navigation={navigation} />
+            ),
+          })}
         />
         <Stack.Screen
           name="Plant"
           component={Plant}
-          options={{ header: () => <Nav name="Plant" /> }}
+          options={({ navigation }) => ({
+            header: () => (
+              <Nav name={t("PLANTSCREEN.TITLE")} navigation={navigation} />
+            ),
+          })}
         />
         <Stack.Screen
           name="Stats"
           component={Stats}
-          options={{ header: () => <Nav name="Stats" /> }}
+          options={({ navigation }) => ({
+            header: () => (
+              <Nav name={t("STATSSCREEN.TITLE")} navigation={navigation} />
+            ),
+          })}
+        />
+        <Stack.Screen
+          name="Settings"
+          component={Settings}
+          options={({ navigation }) => ({
+            header: () => (
+              <Nav name={t("SETTINGSSCREEN.TITLE")} navigation={navigation} />
+            ),
+          })}
         />
       </Stack.Navigator>
     </NavigationContainer>

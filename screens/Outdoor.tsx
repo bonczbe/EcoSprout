@@ -6,7 +6,7 @@ type Props = {
   navigation: RoomsScreenNavigationProp;
 };
 
-function Outside({ navigation }: Props) {
+function Outdoor({ navigation }: Props) {
   return (
     <View>
       <Button title="Home" onPress={() => navigation.navigate("Home")} />
@@ -14,4 +14,4 @@ function Outside({ navigation }: Props) {
   );
 }
 
-export default Outside;
+export default Outdoor;

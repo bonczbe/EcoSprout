@@ -1,11 +1,61 @@
 {
   "translation": {
     "LOGINSCREEN": {
+      "TITLE": "EcoSprout",
       "WELCOME": "Welcome to EcoSprout!",
       "USERNAME": "Username",
+      "USERNAMEPLACEHOLDER": "Enter your username",
       "PASSWORD": "Password",
+      "PASSWORDPLACEHOLDER": "Enter your password",
       "LOGIN": "Login",
       "CREATED_BY": "Created by"
+    },
+    "HOMESCREEN": {
+      "TITLE": "Home"
+    },
+    "ROOMSSCREEN": {
+      "TITLE": "Rooms"
+    },
+    "OUTDOOR": {
+      "TITLE": "Outdoor"
+    },
+    "DEVICESCREEN": {
+      "TITLE": "Device"
+    },
+    "PLANTSCREEN": {
+      "TITLE": "Plant"
+    },
+    "STATSSCREEN": {
+      "TITLE": "Statistics"
+    },
+    "SETTINGSSCREEN": {
+      "TITLE": "Settings",
+      "BACK": "Back",
+      "DATACHANGE": {
+        "FOLDABLE": "Edit Datas",
+        "TITLE": "Settings",
+        "USERNAME": "Username",
+        "USERNAMEPLACEHOLDER": "Enter your username",
+        "PASSWORD": "Password",
+        "PASSWORDPLACEHOLDER": "Enter your password",
+        "FIRSTNAME": "First Name",
+        "FIRSTNAMEPLACEHOLDER": "Enter your first name",
+        "LASTNAME": "Last Name",
+        "LASTNAMEPLACEHOLDER": "Enter your last name",
+        "EMAIL": "Email",
+        "EMAILPLACEHOLDER": "Enter your email",
+        "SAVE": "Update Datas"
+      },
+      "PASSWORDCHANGE": {
+        "FOLDABLE": "Edit Password",
+        "PASSWORD": "Password",
+        "PASSWORDPLACEHOLDER": "Enter your password",
+        "NEWPASSWORD": "New Password",
+        "NEWPASSWORDPLACEHOLDER": "Enter your new password",
+        "NEWPASSWORDSECOND": "New Password Check",
+        "NEWPASSWORDPLACEHOLDERSECOND": "Enter your new password again",
+        "SAVE": "Update Password"
+      }
     }
   }
 }
