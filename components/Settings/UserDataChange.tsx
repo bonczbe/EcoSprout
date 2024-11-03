@@ -79,6 +79,7 @@ function UserDataChange() {
           placeholder={t("SETTINGSSCREEN.DATACHANGE.PASSWORDPLACEHOLDER")}
           value={user.password}
           stateUpdate={(newText) => setUser({ ...user, password: newText })}
+          secureTextEntry
         />
 
         <Pressable
