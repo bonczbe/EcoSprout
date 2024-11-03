@@ -1,4 +1,4 @@
-import { Button, Pressable, ScrollView, Text, View } from "react-native";
+import { Pressable, ScrollView, Text } from "react-native";
 import tw from "twrnc";
 import { RoomsScreenNavigationProp } from "../types/navigation";
 import UserDataChange from "../components/Settings/UserDataChange";

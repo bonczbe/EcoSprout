@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Button, Text, TextInput, TextInputProps, View } from "react-native";
+import { Text, TextInput, TextInputProps, View } from "react-native";
 import tw from "twrnc";
 
 interface LabelInputProps extends TextInputProps {
