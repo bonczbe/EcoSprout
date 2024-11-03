@@ -1,26 +1,15 @@
-import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import i18next from "i18next";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
+import { Text, Pressable, View } from "react-native";
 import { useTranslation } from "react-i18next";
-import {
-  Animated,
-  Easing,
-  Pressable,
-  Text,
-  TextInput,
-  View,
-} from "react-native";
 import tw from "twrnc";
+import LabelInput from "./LabelInput";
+import Foldable from "./Foldable";
 
 function UserDataChange() {
   const { t } = useTranslation();
   const navigation = useNavigation();
-  const [isOpen, setIsOpen] = useState(true);
-  const animationHeight = useRef(new Animated.Value(0)).current;
-  const rotation = useRef(new Animated.Value(0)).current;
-  const scale = useRef(new Animated.Value(1)).current;
-
   const [user, setUser] = useState({
     firstName: "",
     lastName: "",
@@ -31,172 +20,66 @@ function UserDataChange() {
 
   const selectedLanguage = i18next.language;
 
-  useEffect(() => {
-    Animated.timing(animationHeight, {
-      toValue: isOpen ? 1 : 0,
-      duration: 300,
-      easing: Easing.ease,
-      useNativeDriver: false,
-    }).start();
-
-    Animated.timing(rotation, {
-      toValue: isOpen ? 1 : 0,
-      duration: 300,
-      easing: Easing.ease,
-      useNativeDriver: false,
-    }).start();
-
-    Animated.timing(scale, {
-      toValue: isOpen ? 1.1 : 1,
-      duration: 300,
-      easing: Easing.ease,
-      useNativeDriver: false,
-    }).start();
-  }, [isOpen]);
-
-  const animatedHeight = animationHeight.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, 375],
-  });
-
-  const animatedRotation = rotation.interpolate({
-    inputRange: [0, 1],
-    outputRange: ["0deg", "180deg"],
-  });
-
-  const animatedScale = scale.interpolate({
-    inputRange: [0, 1],
-    outputRange: [1, 1.1],
-  });
-
   return (
     <View style={tw`items-center w-full mt-12`}>
-      <Pressable
-        style={tw`flex-row items-center pb-4`}
-        onPress={() => setIsOpen(!isOpen)}
-      >
-        <Animated.View style={{ transform: [{ rotate: animatedRotation }] }}>
-          <Ionicons name={"chevron-down-outline"} size={20} color="black" />
-        </Animated.View>
-        <Animated.Text
-          style={[
-            tw`px-4 text-xl font-bold`,
-            { transform: [{ scale: animatedScale }] },
-          ]}
-        >
-          {t("SETTINGSSCREEN.DATACHANGE.FOLDABLE")}
-        </Animated.Text>
-        <Animated.View style={{ transform: [{ rotate: animatedRotation }] }}>
-          <Ionicons name={"chevron-down-outline"} size={20} color="black" />
-        </Animated.View>
-      </Pressable>
-
-      <Animated.View
-        style={[
-          tw`items-center w-full overflow-hidden`,
-          { height: animatedHeight },
-        ]}
+      <Foldable
+        title={t("SETTINGSSCREEN.DATACHANGE.FOLDABLE")}
+        height={375}
+        isFirstOpen={true}
       >
         {selectedLanguage === "hu" ? (
           <View>
-            <View style={tw`flex-row items-center mb-6`}>
-              <Text style={tw`w-32 mr-2 text-right`}>
-                {t("SETTINGSSCREEN.DATACHANGE.LASTNAME")}:
-              </Text>
-              <TextInput
-                style={tw`h-10 px-2 border border-gray-300 rounded-full w-60`}
-                onChangeText={(newText) =>
-                  setUser({ ...user, lastName: newText })
-                }
-                placeholder={t("SETTINGSSCREEN.DATACHANGE.LASTNAMEPLACEHOLDER")}
-                value={user.lastName}
-              />
-            </View>
-            <View style={tw`flex-row items-center mb-6`}>
-              <Text style={tw`w-32 mr-2 text-right`}>
-                {t("SETTINGSSCREEN.DATACHANGE.FIRSTNAME")}:
-              </Text>
-              <TextInput
-                style={tw`h-10 px-2 border border-gray-300 rounded-full w-60`}
-                onChangeText={(newText) =>
-                  setUser({ ...user, firstName: newText })
-                }
-                placeholder={t(
-                  "SETTINGSSCREEN.DATACHANGE.FIRSTNAMEPLACEHOLDER"
-                )}
-                value={user.firstName}
-              />
-            </View>
+            <LabelInput
+              label={t("SETTINGSSCREEN.DATACHANGE.LASTNAME")}
+              placeholder={t("SETTINGSSCREEN.DATACHANGE.LASTNAMEPLACEHOLDER")}
+              value={user.lastName}
+              stateUpdate={(newText) => setUser({ ...user, lastName: newText })}
+            />
+            <LabelInput
+              label={t("SETTINGSSCREEN.DATACHANGE.FIRSTNAME")}
+              placeholder={t("SETTINGSSCREEN.DATACHANGE.FIRSTNAMEPLACEHOLDER")}
+              value={user.firstName}
+              stateUpdate={(newText) =>
+                setUser({ ...user, firstName: newText })
+              }
+            />
           </View>
         ) : (
           <View>
-            <View style={tw`flex-row items-center mb-6`}>
-              <Text style={tw`w-32 mr-2 text-right`}>
-                {t("SETTINGSSCREEN.DATACHANGE.FIRSTNAME")}:
-              </Text>
-              <TextInput
-                style={tw`h-10 px-2 border border-gray-300 rounded-full w-60`}
-                onChangeText={(newText) =>
-                  setUser({ ...user, firstName: newText })
-                }
-                placeholder={t(
-                  "SETTINGSSCREEN.DATACHANGE.FIRSTNAMEPLACEHOLDER"
-                )}
-                value={user.firstName}
-              />
-            </View>
-            <View style={tw`flex-row items-center mb-6`}>
-              <Text style={tw`w-32 mr-2 text-right`}>
-                {t("SETTINGSSCREEN.DATACHANGE.LASTNAME")}:
-              </Text>
-              <TextInput
-                style={tw`h-10 px-2 border border-gray-300 rounded-full w-60`}
-                onChangeText={(newText) =>
-                  setUser({ ...user, lastName: newText })
-                }
-                placeholder={t("SETTINGSSCREEN.DATACHANGE.LASTNAMEPLACEHOLDER")}
-                value={user.lastName}
-              />
-            </View>
+            <LabelInput
+              label={t("SETTINGSSCREEN.DATACHANGE.FIRSTNAME")}
+              placeholder={t("SETTINGSSCREEN.DATACHANGE.FIRSTNAMEPLACEHOLDER")}
+              value={user.firstName}
+              stateUpdate={(newText) =>
+                setUser({ ...user, firstName: newText })
+              }
+            />
+            <LabelInput
+              label={t("SETTINGSSCREEN.DATACHANGE.LASTNAME")}
+              placeholder={t("SETTINGSSCREEN.DATACHANGE.LASTNAMEPLACEHOLDER")}
+              value={user.lastName}
+              stateUpdate={(newText) => setUser({ ...user, lastName: newText })}
+            />
           </View>
         )}
-
-        <View style={tw`flex-row items-center mb-6`}>
-          <Text style={tw`w-32 mr-2 text-right`}>
-            {t("SETTINGSSCREEN.DATACHANGE.USERNAME")}:
-          </Text>
-          <TextInput
-            style={tw`h-10 px-2 border border-gray-300 rounded-full w-60`}
-            onChangeText={(newText) => setUser({ ...user, userName: newText })}
-            placeholder={t("SETTINGSSCREEN.DATACHANGE.USERNAMEPLACEHOLDER")}
-            value={user.userName}
-          />
-        </View>
-
-        <View style={tw`flex-row items-center mb-6`}>
-          <Text style={tw`w-32 mr-2 text-right`}>
-            {t("SETTINGSSCREEN.DATACHANGE.EMAIL")}:
-          </Text>
-          <TextInput
-            style={tw`h-10 px-2 border border-gray-300 rounded-full w-60`}
-            onChangeText={(newText) => setUser({ ...user, email: newText })}
-            placeholder={t("SETTINGSSCREEN.DATACHANGE.EMAILPLACEHOLDER")}
-            value={user.email}
-          />
-        </View>
-
-        <View style={tw`flex-row items-center mb-4`}>
-          <Text style={tw`w-32 mr-2 text-right`}>
-            {t("SETTINGSSCREEN.DATACHANGE.PASSWORD")}:
-          </Text>
-          <TextInput
-            style={tw`h-10 px-2 border border-gray-300 rounded-full w-60`}
-            onChangeText={(newText) => setUser({ ...user, password: newText })}
-            placeholder={t("SETTINGSSCREEN.DATACHANGE.PASSWORDPLACEHOLDER")}
-            value={user.password}
-            secureTextEntry
-          />
-        </View>
+        <LabelInput
+          label={t("SETTINGSSCREEN.DATACHANGE.USERNAME")}
+          placeholder={t("SETTINGSSCREEN.DATACHANGE.USERNAMEPLACEHOLDER")}
+          value={user.userName}
+          stateUpdate={(newText) => setUser({ ...user, userName: newText })}
+        />
+        <LabelInput
+          label={t("SETTINGSSCREEN.DATACHANGE.EMAIL")}
+          placeholder={t("SETTINGSSCREEN.DATACHANGE.EMAILPLACEHOLDER")}
+          value={user.email}
+          stateUpdate={(newText) => setUser({ ...user, email: newText })}
+        />
+        <LabelInput
+          label={t("SETTINGSSCREEN.DATACHANGE.PASSWORD")}
+          placeholder={t("SETTINGSSCREEN.DATACHANGE.PASSWORDPLACEHOLDER")}
+          value={user.password}
+          stateUpdate={(newText) => setUser({ ...user, password: newText })}
+        />
 
         <Pressable
           style={tw`items-center justify-center h-10 bg-green-600 rounded-lg w-30`}
@@ -208,7 +91,7 @@ function UserDataChange() {
             {t("SETTINGSSCREEN.DATACHANGE.SAVE")}
           </Text>
         </Pressable>
-      </Animated.View>
+      </Foldable>
     </View>
   );
 }
