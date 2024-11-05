@@ -7,6 +7,9 @@ import i18next from "i18next";
 import { SelectList } from "react-native-dropdown-select-list";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { HomeScreenNavigationProp } from "../types/navigation";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { RootState } from "../store/store";
 
 interface NavProps {
   name: string;
@@ -15,6 +18,10 @@ interface NavProps {
 
 const Nav: React.FC<NavProps> = ({ name, navigation }) => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const { userName, isLoggedIn } = useSelector(
+    (state: RootState) => state.user
+  );
   const languages = [
     { key: "hu", value: "HU" },
     { key: "en", value: "EN" },
