@@ -19,8 +19,11 @@
     "OUTDOOR": {
       "TITLE": "Outdoor"
     },
-    "DEVICESCREEN": {
+    "DEVICECREEN": {
       "TITLE": "Device"
+    },
+    "DEVICESCREEN": {
+      "TITLE": "Devices"
     },
     "PLANTSCREEN": {
       "TITLE": "Plant"

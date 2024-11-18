@@ -1,19 +1,18 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./screens/Home";
-import Rooms from "./screens/Rooms";
 import { RootStackParamList } from "./types/navigation";
 import Nav from "./components/Nav";
-import Device from "./screens/Device";
 import Plant from "./screens/Plant";
 import Stats from "./screens/Stats";
 import Login from "./screens/Login";
 import "./lng/i18n";
 import { useTranslation } from "react-i18next";
-import Outdoor from "./screens/Outdoor";
 import Settings from "./screens/Settings";
 import { Provider } from "react-redux";
 import store from "./store/store";
+import Devices from "./screens/Devices";
+import Device from "./screens/Device";
 
 export default function App() {
   const { t } = useTranslation();
@@ -42,20 +41,11 @@ export default function App() {
             })}
           />
           <Stack.Screen
-            name="Rooms"
-            component={Rooms}
+            name="Devices"
+            component={Devices}
             options={({ navigation }) => ({
               header: () => (
-                <Nav name={t("ROOMSSCREEN.TITLE")} navigation={navigation} />
-              ),
-            })}
-          />
-          <Stack.Screen
-            name="Outdoor"
-            component={Outdoor}
-            options={({ navigation }) => ({
-              header: () => (
-                <Nav name={t("OUTDOOR.TITLE")} navigation={navigation} />
+                <Nav name={t("DEVICECREEN.TITLE")} navigation={navigation} />
               ),
             })}
           />

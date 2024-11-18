@@ -5,6 +5,7 @@ export type RootStackParamList = {
   Rooms: undefined;
   Outdoor: undefined;
   Device: undefined;
+  Devices: undefined;
   Plant: undefined;
   Stats: undefined;
   Login: undefined;

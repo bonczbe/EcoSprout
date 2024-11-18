@@ -19,8 +19,11 @@
     "OUTDOOR": {
       "TITLE": "Kültéri"
     },
-    "DEVICESCREEN": {
+    "DEVICECREEN": {
       "TITLE": "Eszköz"
+    },
+    "DEVICESCREEN": {
+      "TITLE": "Eszközök"
     },
     "PLANTSCREEN": {
       "TITLE": "Növény"
