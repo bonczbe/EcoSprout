@@ -45,7 +45,7 @@ export default function App() {
             component={Devices}
             options={({ navigation }) => ({
               header: () => (
-                <Nav name={t("DEVICECREEN.TITLE")} navigation={navigation} />
+                <Nav name={t("DEVICESCREEN.TITLE")} navigation={navigation} />
               ),
             })}
           />
@@ -54,7 +54,7 @@ export default function App() {
             component={Device}
             options={({ navigation }) => ({
               header: () => (
-                <Nav name={t("DEVICESCREEN.TITLE")} navigation={navigation} />
+                <Nav name={t("DEVICECREEN.TITLE")} navigation={navigation} />
               ),
             })}
           />

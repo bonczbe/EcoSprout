@@ -1,14 +1,16 @@
 import { Button, FlatList, Pressable, Text, View } from "react-native";
 import tw from "twrnc";
 import { RoomsScreenNavigationProp } from "../types/navigation";
-import { RouteProp } from "@react-navigation/native";
+import { RouteProp, useNavigation } from "@react-navigation/native";
 
 type Props = {
-  navigation: RoomsScreenNavigationProp;
   route: RouteProp<{ params: { name: string } }, "params">;
 };
 
-function Devices({ navigation, route }: Props) {
+function Devices({ route }: Props) {
+  const navigation = useNavigation();
+  const { name } = route.params;
+
   const items = {
     Budapest: {
       Indoor: {
@@ -56,7 +58,6 @@ function Devices({ navigation, route }: Props) {
     },
   };
 
-  const { name } = route.params;
   const data = items[name].Outdoor;
 
   return (
@@ -82,7 +83,11 @@ function Devices({ navigation, route }: Props) {
         renderItem={({ item }) => (
           <Pressable
             style={tw`p-4 mb-2 bg-white rounded-lg shadow-md`}
-            onPress={() => console.log(`Clicked: ${item.name}`)}
+            onPress={() => {
+              navigation.navigate("Device", {
+                name: item.name.replace(" ", "_"),
+              });
+            }}
           >
             <Text style={tw`text-lg font-bold text-green-800`}>
               {item.name}
