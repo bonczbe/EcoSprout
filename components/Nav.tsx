@@ -53,7 +53,7 @@ const Nav: React.FC<NavProps> = ({ name, navigation }) => {
   return (
     <SafeAreaView style={tw`p-4 pt-12 bg-green-300`}>
       <View style={tw`flex-row items-center`}>
-        <View style={tw`flex-initial w-18 `}>
+        <View style={tw`flex-initial w-24 `}>
           <SelectList
             defaultOption={defaultLanguage}
             setSelected={changeLanguage}

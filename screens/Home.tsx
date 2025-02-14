@@ -1,12 +1,13 @@
 import { Button, Text, TouchableOpacity, View } from "react-native";
 import tw from "twrnc";
-import { HomeScreenNavigationProp } from "../types/navigation";
 import { useNavigation } from "@react-navigation/native";
+import { useTranslation } from "react-i18next";
 
 type Props = {};
 
 function Home({}: Props) {
   const navigation = useNavigation();
+    const { t } = useTranslation();
   const items = {
     places: [
       {
@@ -22,7 +23,7 @@ function Home({}: Props) {
   return (
     <View style={tw`items-center h-full pt-24 bg-green-100`}>
       <Text style={tw`mb-2 text-lg font-semibold text-gray-700`}>
-        Choose Your Area
+      {t("HOMESCREEN.HEADLINE")}
       </Text>
       {items.places.map((item) => (
         <TouchableOpacity
@@ -44,7 +45,7 @@ function Home({}: Props) {
         style={tw`px-6 py-4 mb-3 bg-green-100 rounded-lg`}
         onPress={() => navigation.navigate("Stats")}
       >
-        <Text style={tw`text-lg font-medium text-green-800`}>Stats</Text>
+        <Text style={tw`text-lg font-medium text-green-800`}>{t("STATSSCREEN.TITLE")}</Text>
       </TouchableOpacity>
     </View>
   );

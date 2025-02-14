@@ -1,5 +1,9 @@
 {
   "translation": {
+    "COMMON":{
+      "BACK": "Vissza",
+      "HOME": "Kezdőlap"
+    },
     "LOGINSCREEN": {
       "TITLE": "EcoSprout",
       "WELCOME": "Üdvözöl az EcoSprout!",
@@ -11,7 +15,8 @@
       "CREATED_BY": "Készítette"
     },
     "HOMESCREEN": {
-      "TITLE": "Kezdőlap"
+      "TITLE": "Kezdőlap",
+      "HEADLINE": "Válaszd ki a területet"
     },
     "ROOMSSCREEN": {
       "TITLE": "Szobák"
@@ -20,7 +25,8 @@
       "TITLE": "Kültéri"
     },
     "DEVICECREEN": {
-      "TITLE": "Eszköz"
+      "TITLE": "Eszköz",
+      "UNTIL_MIN_MOITURE": "Miniális nedvesség (10%)"
     },
     "DEVICESCREEN": {
       "TITLE": "Eszközök"
@@ -29,11 +35,13 @@
       "TITLE": "Növény"
     },
     "STATSSCREEN": {
-      "TITLE": "Statisztikák"
+      "TITLE": "Statisztikák",
+      "INDOOR": "Benti Statisztikák",
+      "OUTDOOR": "Kinti Statisztikák",
+      "PLANTS": "Növények"
     },
     "SETTINGSSCREEN": {
       "TITLE": "Beállítások",
-      "BACK": "Vissza",
       "DATACHANGE": {
         "FOLDABLE": "Adatok változtatás",
         "TITLE": "Beállítások",

@@ -2,6 +2,7 @@ import { Image, Modal, Pressable, ScrollView, Text, View } from "react-native";
 import tw from "twrnc";
 import { RouteProp, useNavigation } from "@react-navigation/native";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   route: RouteProp<{ params: { name: string } }, "params">;
@@ -146,6 +147,7 @@ function Device({ route }: Props) {
     if (range === 0) return 0;
     return ((current - min) / range) * 100;
   };
+    const { t } = useTranslation();
 
   return (
     <View style={tw`items-center h-full pt-1 bg-green-100 w-full`}>
@@ -154,7 +156,7 @@ function Device({ route }: Props) {
           style={tw`items-center justify-center w-20 h-10 ml-1 bg-green-600 rounded-lg`}
           onPress={() => navigation.goBack()}
         >
-          <Text style={tw`font-bold text-white`}>Back</Text>
+          <Text style={tw`font-bold text-white`}>{t("COMMON.BACK")}</Text>
         </Pressable>
         <Text style={tw`text-xl font-bold text-green-800`}>
           {name.replace("_", " ")}
@@ -163,7 +165,7 @@ function Device({ route }: Props) {
           style={tw`items-center justify-center w-20 h-10 mr-1 bg-green-600 rounded-lg`}
           onPress={() => navigation.navigate("Home")}
         >
-          <Text style={tw`font-bold text-white`}>Home</Text>
+          <Text style={tw`font-bold text-white`}>{t("COMMON.HOME")}</Text>
         </Pressable>
       </View>
       <ScrollView style={tw`w-full px-4`}>
@@ -188,8 +190,8 @@ function Device({ route }: Props) {
               </Text>
             </View>
             <View style={tw`text-center w-3/12`}>
-              <Text numberOfLines={2} style={tw`w-full text-center`}>
-                Until watering:
+              <Text numberOfLines={3} style={tw`w-full text-center`}>
+              {t("DEVICECREEN.UNTIL_MIN_MOITURE")}
               </Text>
               <Image
                 style={tw`w-12 h-12 m-1 bg-green-200 rounded-lg mx-auto`}

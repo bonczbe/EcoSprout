@@ -25,7 +25,7 @@ function Settings({ navigation }: Props) {
         }}
       >
         <Text style={tw`font-semibold text-white`}>
-          {t("SETTINGSSCREEN.BACK")}
+          {t("COMMON.BACK")}
         </Text>
       </Pressable>
     </ScrollView>

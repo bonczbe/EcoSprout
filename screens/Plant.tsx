@@ -9,7 +9,7 @@ type Props = {
 function Plant({ navigation }: Props) {
   return (
     <View>
-      <Button title="Home" onPress={() => navigation.navigate("Home")} />
+      <Button title={t("COMMON.HOME")} onPress={() => navigation.navigate("Home")} />
     </View>
   );
 }

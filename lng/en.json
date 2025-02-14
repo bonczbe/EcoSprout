@@ -1,5 +1,9 @@
 {
   "translation": {
+    "COMMON":{
+      "BACK": "Back",
+      "HOME": "Home"
+    },
     "LOGINSCREEN": {
       "TITLE": "EcoSprout",
       "WELCOME": "Welcome to EcoSprout!",
@@ -11,7 +15,8 @@
       "CREATED_BY": "Created by"
     },
     "HOMESCREEN": {
-      "TITLE": "Home"
+      "TITLE": "Home",
+      "HEADLINE": "Choose Your Area"
     },
     "ROOMSSCREEN": {
       "TITLE": "Rooms"
@@ -20,7 +25,8 @@
       "TITLE": "Outdoor"
     },
     "DEVICECREEN": {
-      "TITLE": "Device"
+      "TITLE": "Device",
+      "UNTIL_MIN_MOITURE": "Minimum moisture (10%)"
     },
     "DEVICESCREEN": {
       "TITLE": "Devices"
@@ -29,11 +35,13 @@
       "TITLE": "Plant"
     },
     "STATSSCREEN": {
-      "TITLE": "Statistics"
+      "TITLE": "Statistics",
+      "INDOOR": "Indoor Stats",
+      "OUTDOOR": "Outdoor Stats",
+      "PLANTS": "Plants"
     },
     "SETTINGSSCREEN": {
       "TITLE": "Settings",
-      "BACK": "Back",
       "DATACHANGE": {
         "FOLDABLE": "Edit Datas",
         "TITLE": "Settings",

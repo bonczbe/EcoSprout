@@ -1,6 +1,8 @@
 import { Pressable, ScrollView, Text, View } from "react-native";
 import tw from "twrnc";
 import { RoomsScreenNavigationProp } from "../types/navigation";
+import { useTranslation } from "react-i18next";
+import PlacesStats from "../components/Stats/PlacesStats";
 
 type Props = {
   navigation: RoomsScreenNavigationProp;
@@ -14,6 +16,19 @@ function Stats({ navigation }: Props) {
         places: [
           {
             name: "Office",
+            plants: {
+              Spider_Plant: {
+                usage: 15,
+              },
+              Philodendron: {
+                usage: 10,
+              },
+            },
+            usage: 25,
+            remaining: 150,
+          },
+          {
+            name: "Elevator",
             plants: {
               Spider_Plant: {
                 usage: 15,
@@ -105,6 +120,8 @@ function Stats({ navigation }: Props) {
       },
     },
   };
+  
+    const { t } = useTranslation();
 
   return (
     <View style={tw`items-center h-full pt-2 bg-green-50 w-full`}>
@@ -113,14 +130,14 @@ function Stats({ navigation }: Props) {
           style={tw`items-center justify-center w-20 h-10 ml-1 bg-green-700 rounded-lg shadow-lg`}
           onPress={() => navigation.goBack()}
         >
-          <Text style={tw`font-bold text-white`}>Back</Text>
+          <Text style={tw`font-bold text-white`}>{t("COMMON.BACK")}</Text>
         </Pressable>
-        <Text style={tw`text-2xl font-extrabold text-green-900`}>Stats</Text>
+        <Text style={tw`text-2xl font-extrabold text-green-900`}>{t("STATSSCREEN.TITLE")}</Text>
         <Pressable
           style={tw`items-center justify-center w-20 h-10 mr-1 bg-green-700 rounded-lg shadow-lg`}
           onPress={() => navigation.navigate("Home")}
         >
-          <Text style={tw`font-bold text-white`}>Home</Text>
+          <Text style={tw`font-bold text-white`}>{t("COMMON.HOME")}</Text>
         </Pressable>
       </View>
 
@@ -130,61 +147,8 @@ function Stats({ navigation }: Props) {
             <Text style={tw`text-2xl font-bold text-green-800 mb-2`}>
               {location} ({data.weather})
             </Text>
-
-            <Text style={tw`text-xl font-semibold text-green-600 mb-2`}>Indoor Stats</Text>
-            {data.Indoor.places.map((place, index) => (
-              <View key={index} style={tw`mb-4 bg-green-100 rounded-lg p-4 shadow-lg`}>
-                <Text style={tw`text-lg font-semibold text-green-700`}>{place.name}</Text>
-                <View style={tw`flex-row justify-between`}>
-                  <Text style={tw`text-sm text-green-600`}>Usage: {place.usage}L</Text>
-                  <Text style={tw`text-sm text-green-600`}>Remaining: {place.remaining}L</Text>
-                </View>
-                <View style={tw`mt-2`}>
-                  {Object.entries(place.plants).map(([plant, plantData]) => (
-                    <Text key={plant} style={tw`text-sm text-green-500 pl-2`}>
-                      {plant.replace("_", " ")}: {plantData.usage}L
-                    </Text>
-                  ))}
-                </View>
-
-                <View style={tw`mt-4 bg-green-200 rounded-full h-2`}>
-                  <View
-                    style={[
-                      tw`h-full rounded-full`,
-                      {
-                        width: `${(place.usage / (place.usage + place.remaining)) * 100}%`,
-                        backgroundColor: "#2D6A4F",
-                      },
-                    ]}
-                  />
-                </View>
-              </View>
-            ))}
-
-            <Text style={tw`text-xl font-semibold text-green-600 mb-2 mt-4`}>Outdoor Stats</Text>
-            {data.Outdoor.places.map((place, index) => (
-              <View key={index} style={tw`mb-4 bg-green-100 rounded-lg p-4 shadow-lg`}>
-                <Text style={tw`text-lg font-semibold text-green-700`}>{place.name}</Text>
-                <Text style={tw`text-sm text-green-600`}>Plants:</Text>
-                {Object.entries(place.plants).map(([plant, plantData]) => (
-                  <Text key={plant} style={tw`text-sm text-green-500 pl-2`}>
-                    {plant.replace("_", " ")}: {plantData.usage}L
-                  </Text>
-                ))}
-
-                <View style={tw`mt-4 bg-green-200 rounded-full h-2`}>
-                  <View
-                    style={[
-                      tw`h-full rounded-full`,
-                      {
-                        width: `${(place.usage / (place.usage + place.remaining)) * 100}%`,
-                        backgroundColor: "#2D6A4F",
-                      },
-                    ]}
-                  />
-                </View>
-              </View>
-            ))}
+            <PlacesStats title={t("STATSSCREEN.INDOOR")} places={data.Indoor.places} navigation={navigation} location={location}/>
+            <PlacesStats title={t("STATSSCREEN.OUTDOOR")} places={data.Outdoor.places} navigation={navigation}  location={location}/>
           </View>
         ))}
       </ScrollView>
