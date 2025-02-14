@@ -38,7 +38,7 @@ const PlaceCard = ({ place, onPress }: PlaceCardProps) => {
             style={[
               tw`h-full rounded-full`,
               {
-                width: `${(place.usage / (place.usage + place.remaining)) * 100}%`,
+                width: `${(place.usage / (place.remaining)) * 100}%`,
                 backgroundColor: "#2D6A4F",
               },
             ]}
