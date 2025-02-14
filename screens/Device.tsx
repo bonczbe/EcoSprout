@@ -147,7 +147,23 @@ function Device({ route }: Props) {
     if (range === 0) return 0;
     return ((current - min) / range) * 100;
   };
-    const { t } = useTranslation();
+
+  const calculateDropStyle = (
+    max: number,
+    min: number,
+    current: number
+  ) => {
+    let percentage = calculateHumidityPercentage( max, min, current ).toFixed(2);
+    if(percentage<0){
+      return require("../images/drop_red_styled.png");
+    }else if(percentage<10){
+      return require("../images/drop_yellow_styled.png");
+    }else{
+      return require("../images/drop.png");
+    }
+  };
+  
+  const { t } = useTranslation();
 
   return (
     <View style={tw`items-center h-full pt-1 bg-green-100 w-full`}>
@@ -195,7 +211,10 @@ function Device({ route }: Props) {
               </Text>
               <Image
                 style={tw`w-12 h-12 m-1 bg-green-200 rounded-lg mx-auto`}
-                source={require("../images/drop.png")}
+                source={calculateDropStyle(
+                  humidityRanges[item.plantType].max,
+                  humidityRanges[item.plantType].min,
+                  item.humidity)}
               />
               <Text numberOfLines={2} style={tw`w-full text-center`}>
                 {calculateHumidityPercentage(
